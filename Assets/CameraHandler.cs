@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CameraHandler : MonoBehaviour
 {
+    Camera cam;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        cam = this.GetComponent<Camera>();
     }
 
     // Update is called once per frame
@@ -18,10 +19,10 @@ public class CameraHandler : MonoBehaviour
 
         if (d > 0f)
         {
-
-        } else
+            cam.orthographicSize -= .1f;
+        } else if (d < 0f)
         {
-
+            cam.orthographicSize += .1f;
         }
     }
 }
